@@ -12,3 +12,4 @@
 /home/krillin/code/langs/csharp/course_proj/obj/Debug/net10.0/course_proj.pdb
 /home/krillin/code/langs/csharp/course_proj/obj/Debug/net10.0/course_proj.genruntimeconfig.cache
 /home/krillin/code/langs/csharp/course_proj/obj/Debug/net10.0/ref/course_proj.dll
+/home/krillin/code/langs/csharp/course_proj/obj/Debug/net10.0/course_proj.sourcelink.json

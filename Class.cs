@@ -1,34 +1,23 @@
 using System.Diagnostics.CodeAnalysis;
+
 class Class{
-    public enum Subject
-    {
-        Calculus,
-        LinAlgebra,
-        DiscreteMath,
-        Programming,
-        Physics,
-        English
-    }
-
-    Rule rule;
-    
-    public Class()
-    {
-        rule = new Rule();
-    }
-
-    [SetsRequiredMembers]
-    public Class(Subject subj) => subject = subj;
+    public required Rule rule;
 
     public required Subject subject {get; init;}
 
-    public void doClass(Student student){
-        student.DoDay(); // decides to skip or not to skip
+    [SetsRequiredMembers]
+    public Class(Subject subj)
+    {
+        rule = new Rule();
+        subject = subj;
+    }
+
+    public void doClass(int day, Student student){
+        student.DoDay(day); // decides to skip or not to skip
         bool isQuestioned = rule.Decide(student);
         if (isQuestioned){
-            if (student.IsPresent){
-                student.WasAsked = true;
-                student.LastSubj = subject;
+            if (student.DaysPresent[day, (int)subject]){
+                student.DaysWasAsked[day, (int)subject] = true;
             }
             else {
                 // drop out

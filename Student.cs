@@ -1,28 +1,48 @@
-class Student
+class Student : IReadOnlyStudentHistory
 {
     const byte SatisfactionPoint = 1;
 
-    Strategy _strategy;
+    IStrategy _strategy;
 
-    float _satisfaction;
     public float Satisfaction{ get; set;}
 
-    Class.Subject _lastSubj;
-    public Class.Subject LastSubj{get;set;}
-
     // status 
-    bool _wasAsked;
-    public bool WasAsked{get;set;}
-    bool _isPresent;
-    public bool IsPresent{get; set;}
+    public bool?[,] DaysWasAsked{get;set;}
+    public bool[,] DaysPresent{get; set;}
 
-    public void DoDay(){
-        if (_strategy.Decide()){
-            _satisfaction += 2*SatisfactionPoint; // eat pirojok + skip class
-            _isPresent = false;
-        } else {
-            _satisfaction += SatisfactionPoint; // eat pirojok
-            _isPresent = true;
+    public Student(IStrategy strategy)
+    {
+        _strategy = strategy;
+        DaysWasAsked = new bool?[University.SemesterDays, 6];
+        DaysPresent = new bool[University.SemesterDays, 6];
+    }
+
+    public void DoDay(int day){
+        Satisfaction += SatisfactionPoint; // eat pirojok
+
+        bool[] skipChoice =_strategy.DecideDay(day, this);
+
+        for (int i = 0; i < skipChoice.Length; i++)
+        {
+        Console.WriteLine("I will " + "[" + skipChoice[i] + "] to " + (Subject)i);
+            if (skipChoice[i])
+            {
+                Satisfaction += SatisfactionPoint;
+                DaysPresent[day, i] = false;
+            } else
+            {
+                DaysPresent[day, i] = true;
+            }
         }
+    }
+
+    bool? IReadOnlyStudentHistory.WasAsked(int day, Subject subject)
+    {
+        return DaysWasAsked[day, (int)subject];
+    }
+
+    public bool Attended(int day, Subject subject)
+    {
+        return DaysPresent[day, (int)subject];
     }
 }
