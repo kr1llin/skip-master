@@ -1,0 +1,15 @@
+/home/krillin/code/langs/csharp/course_proj/bin/Debug/net6.0/course_proj
+/home/krillin/code/langs/csharp/course_proj/bin/Debug/net6.0/course_proj.deps.json
+/home/krillin/code/langs/csharp/course_proj/bin/Debug/net6.0/course_proj.runtimeconfig.json
+/home/krillin/code/langs/csharp/course_proj/bin/Debug/net6.0/course_proj.dll
+/home/krillin/code/langs/csharp/course_proj/bin/Debug/net6.0/ref/course_proj.dll
+/home/krillin/code/langs/csharp/course_proj/bin/Debug/net6.0/course_proj.pdb
+/home/krillin/code/langs/csharp/course_proj/obj/Debug/net6.0/course_proj.csproj.AssemblyReference.cache
+/home/krillin/code/langs/csharp/course_proj/obj/Debug/net6.0/course_proj.GeneratedMSBuildEditorConfig.editorconfig
+/home/krillin/code/langs/csharp/course_proj/obj/Debug/net6.0/course_proj.AssemblyInfoInputs.cache
+/home/krillin/code/langs/csharp/course_proj/obj/Debug/net6.0/course_proj.AssemblyInfo.cs
+/home/krillin/code/langs/csharp/course_proj/obj/Debug/net6.0/course_proj.csproj.CoreCompileInputs.cache
+/home/krillin/code/langs/csharp/course_proj/obj/Debug/net6.0/course_proj.dll
+/home/krillin/code/langs/csharp/course_proj/obj/Debug/net6.0/ref/course_proj.dll
+/home/krillin/code/langs/csharp/course_proj/obj/Debug/net6.0/course_proj.pdb
+/home/krillin/code/langs/csharp/course_proj/obj/Debug/net6.0/course_proj.genruntimeconfig.cache
