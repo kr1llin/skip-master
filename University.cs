@@ -1,3 +1,6 @@
+using System.Linq;
+
+// TODO: Random class generation
 class University
 {
     static public int SemesterDays {get => 100;}
@@ -6,13 +9,9 @@ class University
     Student student;
 
     public University(){
-        Classes = new Class[6];
-        Classes[0] = new Class(Subject.Calculus);
-        Classes[1] = new Class(Subject.DiscreteMath);
-        Classes[2] = new Class(Subject.English);
-        Classes[3] = new Class(Subject.LinearAlgebra);
-        Classes[4] = new Class(Subject.Physics);
-        Classes[5] = new Class(Subject.Programming);
+        Classes = Enum.GetValues<Subject>()
+                  .Select(subject => new Class(subject))
+                  .ToArray();
 
         student = new Student(new NoSkipStrategy()); 
     }
@@ -30,5 +29,6 @@ class University
             totalDays = day;
         }
         Console.WriteLine((int)(totalDays+1) + " days => " + student.Satisfaction);
+        Console.WriteLine("Average satusfaction => " + (float) student.Satisfaction / SemesterDays);
     }
 }
