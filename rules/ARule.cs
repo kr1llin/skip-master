@@ -1,6 +1,6 @@
 class ARule : IRule
 {
-    public bool Decide(int day, Student student, Class klass)
+    public bool Decide(int day, Student student, Lesson klass)
     {
         if (day == 0) return false;
         return student.DaysWasAsked[day - 1, (int)klass.subject] == true ? true : false;

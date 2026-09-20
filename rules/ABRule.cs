@@ -1,6 +1,6 @@
 class ABRule : IRule
 {
-    public bool Decide(int day, Student student, Class klass)
+    public bool Decide(int day, Student student, Lesson klass)
     {
         if (day == 0) return false;
 
@@ -8,13 +8,14 @@ class ABRule : IRule
         Subject subjB = klass.subjectB;
 
 
-        bool askedA = (bool) student.DaysWasAsked[day - 1, (int)subjA].GetValueOrDefault(false);
-        bool askedB = (bool) student.DaysWasAsked[day - 1, (int)subjB].GetValueOrDefault(false);
+        bool askedA = (bool)student.DaysWasAsked[day - 1, (int)subjA].GetValueOrDefault(false);
+        bool askedB = (bool)student.DaysWasAsked[day - 1, (int)subjB].GetValueOrDefault(false);
 
         if (askedA && !askedB)
         {
             return true;
-        } else if (askedB && !askedA)
+        }
+        else if (askedB && !askedA)
         {
             return true;
         }
