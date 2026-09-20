@@ -19,17 +19,23 @@ class University
     public void RunSemester()
     {
         int totalDays = 0;
+        bool droppedOut = false;
 
-        for (int day = 0; day < SemesterDays; day++)
+        for (int day = 0; day < SemesterDays && !droppedOut; day++)
         {
-            Classes[day % 6].doClass(day, student);
-
-            //drop out
-            if (student.Satisfaction == 0)
+            for (int l = 0; l < 6; l++)
             {
-                break;
+                Classes[l].doClass(day, student);
+
+                //drop out
+                if (student.Satisfaction == 0)
+                {
+                    Console.WriteLine(Enum.GetName(typeof(Subject), l) + " killed student");
+                    droppedOut = true;
+                    break;
+                }
+                totalDays = day;
             }
-            totalDays = day;
         }
         Console.WriteLine((int)(totalDays + 1) + " days => " + student.Satisfaction);
         Console.WriteLine("Average satusfaction => " + (float)student.Satisfaction / SemesterDays);

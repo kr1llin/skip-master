@@ -8,7 +8,7 @@ class Lesson
     private static readonly Type[] RuleTypes =
     typeof(IRule).Assembly
         .GetTypes()
-        .Where(t => typeof(IRule).IsAssignableFrom(t))
+        .Where(t => typeof(IRule).IsAssignableFrom(t) && !t.IsInterface)
         .ToArray();
     public required IRule rule;
 
