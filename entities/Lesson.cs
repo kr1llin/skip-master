@@ -17,7 +17,7 @@ class Lesson
     [SetsRequiredMembers]
     public Lesson(Subject subj)
     {
-        var ruleType = RuleTypes[Random.Shared.Next(RuleTypes.Length)];
+        var ruleType = TypesResolver.ResolveRandomly<IRule>();
         rule = (IRule)Activator.CreateInstance(ruleType)!;
 
         subject = subj;
